@@ -1,0 +1,36 @@
+from collections import Counter
+
+
+def calculate_love_score(lover_male, lover_female):
+    print(f"{lover_male}, {lover_female}")
+
+    # Define words to check
+    true_word = "true"
+    love_word = "love"
+
+    # Combine the names and convert to lowercase
+    combined_names = lover_male.lower() + lover_female.lower()
+
+    # Count occurrences of letters in the combined names
+    letter_count = Counter(combined_names)
+
+    # Calculate the score for "true"
+    true_letters = sum(letter_count[letter] for letter in true_word)
+    
+
+    # Calculate the score for "love"
+    love_letters = sum(letter_count[letter] for letter in love_word)
+
+    # Form the final score as a two-digit number
+    love_score = f"{true_letters}{love_letters}"
+
+    print(f"True score: {true_letters}")
+    print(f"Love score: {love_letters}")
+    print(f"Love Score: {love_score}")
+
+    return love_score
+
+
+# Test the function
+calculate_love_score("Sherrard", "Tiera")
+
